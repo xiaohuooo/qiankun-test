@@ -5,4 +5,9 @@ import microAppSetting from "./microAppSetting";
 //注册子应用
 registerMicroApps(microAppSetting.microApps());
 //开启
-start();
+start({
+    // prefetch: 'all',
+    sandbox: {
+        experimentalStyleIsolation: false
+    }
+});
