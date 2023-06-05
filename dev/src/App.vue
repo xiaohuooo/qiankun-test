@@ -14,7 +14,7 @@ export default {
   name: 'App',
   props: ['propsName'],
   mounted() {
-    console.log(this.$listeners);
+    console.log(this.$props);
     console.log(this.propsName);
     //  fetch('/api1/api/list').then(function(data){
     //     // text()方法属于fetchAPI的一部分，它返回一个Promise实例对象，
