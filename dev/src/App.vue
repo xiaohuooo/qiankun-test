@@ -12,15 +12,18 @@
 
 export default {
   name: 'App',
+  props: ['propsName'],
   mounted() {
-     fetch('/api1/api/list').then(function(data){
-        // text()方法属于fetchAPI的一部分，它返回一个Promise实例对象，
-        // 用于获取后台返回的数据 return data.text();
-        return data.text();
-    }).then(function (data) {
-        // 在这个then里面我们能拿到最终的数据
-        console.log(data);
-    })
+    console.log(this.$listeners);
+    console.log(this.propsName);
+    //  fetch('/api1/api/list').then(function(data){
+    //     // text()方法属于fetchAPI的一部分，它返回一个Promise实例对象，
+    //     // 用于获取后台返回的数据 return data.text();
+    //     return data.text();
+    // }).then(function (data) {
+    //     // 在这个then里面我们能拿到最终的数据
+    //     console.log(data);
+    // })
   },
 }
 </script>
