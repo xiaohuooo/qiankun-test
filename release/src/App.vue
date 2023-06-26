@@ -10,7 +10,7 @@
     </div>
     <div class="btns">
       <template v-if="isInQiankun">
-        <button @click="gotoSubReact">从当前子应用内跳转到`sub-react`子应用</button>
+        <!-- <button @click="gotoSubReact">从当前子应用内跳转到`sub-react`子应用</button> -->
         <button @click="openSubVue">独立打开sub-vue子应用</button>
       </template>
       <button @click="changeUsername">改变全局的用户名称</button>

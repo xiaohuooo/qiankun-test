@@ -16,7 +16,7 @@ microAppSetting.microApps = () => {
       apps.push({
         name: item.name, //应用名(不可重复)
         entry: item.url, //默认加载应用路径(ip与端口)
-        container: `#${item.name}`, //容器id
+        container: `#dev`, //容器id
         activeRule: `/${item.menuName}`, //激活该应用的路径（子应用路由基地址）
         props: {
           ...item.props,
