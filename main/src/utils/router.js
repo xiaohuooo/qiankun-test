@@ -18,7 +18,6 @@ const router = new VueRouter({
       path: "/dev",
       component: Dev,
     },
-    ,
     {
       path: "/release",
       component: Dev,
