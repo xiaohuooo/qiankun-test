@@ -23,6 +23,10 @@ const router = new VueRouter({
       component: Dev,
     },
     {
+      path: "/release/*",
+      component: Dev,
+    },
+    {
       path: "/dev/*",
       component: Dev,
     },

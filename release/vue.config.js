@@ -4,7 +4,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
   devServer: {
-    port: 8082,
+    port: process.env.VUE_APP_PORT,
     proxy: {
       "/api1": {
         // 匹配所有以'/api1' 开头的请求路径

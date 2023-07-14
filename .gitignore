@@ -1,0 +1,8 @@
+release/node_modules/
+release/dist/
+main/node_modules/
+main/dist/
+dev/node_modules/
+dev/dist/
+/node_modules
+package-lock.json

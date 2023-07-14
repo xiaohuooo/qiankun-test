@@ -1,0 +1,40 @@
+{
+  "name": "qiankun-test",
+  "version": "1.0.0",
+  "description": "qiankun-test",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "install:release": "cd release && yarn install",
+    "install:main": "cd main && yarn install",
+    "install:dev": "cd dev && yarn install",
+    "install-all": "npm-run-all install:*",
+    "start:release": "cd release && yarn serve",
+    "start:main": "cd main && yarn serve",
+    "start:dev": "cd dev && yarn serve",
+    "start-all": "npm-run-all --parallel start:*",
+    "serve-all": "npm-run-all --parallel start:*",
+    "build:release": "cd release && yarn build",
+    "build:main": "cd main && yarn build",
+    "build:dev": "cd dev && yarn build",
+    "build-all": "npm-run-all --parallel build:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaohuooo/qiankun-test.git"
+  },
+  "keywords": [
+    "xiaohu"
+  ],
+  "author": "xiaohu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaohuooo/qiankun-test/issues"
+  },
+  "homepage": "https://github.com/xiaohuooo/qiankun-test#readme",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
