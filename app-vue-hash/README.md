@@ -1,7 +1,6 @@
-# 主项目
+# app-vue-hash
 
-这是主项目，包括菜单和子项目和容器
-
+hash模式路由的子项目
 
 ## Project setup
 ```

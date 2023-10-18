@@ -1,57 +1,41 @@
 <template>
-  <div id="fapp">
-    <!-- 主应用路由出口 -->
-    <router-link to="/main">主应用</router-link> &nbsp;
-    <router-link
-      v-for="(item, index) in microAppDom_Router"
-      :key="index"
-      :to="`/${item.name}?${item.props?.propsName}`"
-      >{{ item.menuName }}
-    </router-link>
-    <p>{{ state }}</p>
-    <button @click="changeUsername">改变全局的用户名称</button>
+  <div id="app">
+    <header>
+      <router-link to="/app-vue-hash/about">app-vue-hash</router-link>
+      <router-link to="/about">about</router-link>
+      <span @click="changeParentState">主项目的数据：{{ commonData.parent }}，点击变回1</span>
+    </header>
+    <div id="appContainer"></div>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-// 引入子应用路由
-import microAppRouter from "@/utils/microApp/microAppRouter";
-import store from "@/utils/microApp/store";
 export default {
-  name: "App",
-  data() {
-    return {
-      // 默认路由
-      // 微应用容器及路由list
-      microAppDom_Router: microAppRouter,
-    };
-  },
-  created() {
-    console.log(this.microAppDom_Router);
-  },
   computed: {
-    state() {
-      // 如果只需要取某个命名空间下的state，比如 user ，可以加上参数
-      // return store.getGlobalState('user')
-
-      // 返回所有的state则不需添加参数
-      return store.getGlobalState("user");
-    },
+    commonData(){
+      return this.$store.state.commonData;
+    }
   },
   methods: {
-    changeUsername() {
-      // 也可通过 store.commit('global/setGlobalState', { user: '李四' }) 进行操作
-      store.setGlobalState({
-        user: { name: "李四" + Math.round(Math.random() * 100) },
-      });
-    },
+    changeParentState(){
+      this.$store.commit('setCommonData',{ parent: 1 });
+    }
   },
-};
+}
 </script>
 
-<style>
-a {
-  text-decoration: none;
+<style scoped>
+#app{
+  height: 100vh;
+  text-align: center;
+  position: relative;
+}
+header>a{
+  margin: 0 20px;
+}
+.appContainer{
+  background: #ccc;
+  padding: 20px;
 }
 </style>

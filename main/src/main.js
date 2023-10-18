@@ -1,13 +1,32 @@
+import 'whatwg-fetch';
+import 'custom-event-polyfill';
+import 'core-js/stable/promise';
+import 'core-js/stable/symbol';
+import 'core-js/stable/string/starts-with';
+import 'core-js/web/url';
 import Vue from 'vue'
 import App from './App.vue'
-import "@/utils/microApp/index";
-import router from "./utils/router";
-import VueRouter from 'vue-router'; 
-import './style/common.css'
+import router from './router'
+import store from './store'
+import { registerMicroApps, start } from 'qiankun';
+
 Vue.config.productionTip = false
 
-Vue.use(VueRouter) 
 new Vue({
-  render: h => h(App),
-  router
-}).$mount('#app')
+  router,
+  store,
+  render: h => h(App)
+}).$mount("#app");
+
+const getActiveRule = (hash) => (location) => location.hash.startsWith(hash);
+registerMicroApps([
+  { 
+    name: 'app-vue-hash', 
+    entry: 'http://localhost:1111/child/', 
+    container: '#appContainer', 
+    activeRule: getActiveRule('#/app-vue-hash'), 
+    props: { data : { store, router } }
+  },
+]);
+
+start();
